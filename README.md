@@ -4,21 +4,6 @@ This project is designed to provision and manage infrastructure on Microsoft Azu
 
 ## Project Structure
 
-```
-azure-terraform-project
-├── modules
-│   ├── network          # Module for networking resources
-│   ├── compute          # Module for compute resources (VMs)
-│   └── storage          # Module for storage resources
-├── environments
-│   ├── dev             # Development environment
-│   ├── staging         # Staging environment
-│   └── prod            # Production environment
-├── global              # Global configurations and variables
-├── .gitignore          # Git ignore file
-└── README.md           # Project documentation
-```
-
 ## Modules
 
 - **Network Module**: Defines resources for creating a Virtual Network (VNet) in Azure.
