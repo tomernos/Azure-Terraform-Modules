@@ -1,0 +1,20 @@
+# Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+
+# Secrets (you may want to ignore tfvars with secrets)
+*.auto.tfvars
+
