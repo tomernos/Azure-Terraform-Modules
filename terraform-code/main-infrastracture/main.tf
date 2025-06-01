@@ -5,7 +5,7 @@ terraform {
 locals {
   location      = var.location
   common_tags   = merge(var.tags, {
-    Environment   = "test"
+    Environment   = "DEV"
     Project       = "azure-infrastructure-tf"
     ManagedBy     = "tomer"
   })
@@ -18,6 +18,15 @@ module "network" {
   vnets             = var.vnets
   subnets           = var.subnets
   peerings          = var.peerings
+  route_tables      = var.route_tables
+  routes            = var.routes
   common_tags       = local.common_tags  
-  vnet_ids          = {}  # This will be populated by the module outputs
+}
+
+module "compute" {
+  source              = "../../terraform-modules/compute-module"
+  location            = module.network.resource_group_location[var.vms.resource_group_name]
+  subnet_ids          = module.network.subnet_ids
+  vms                 = var.vms
+  tags                = local.common_tags
 }
